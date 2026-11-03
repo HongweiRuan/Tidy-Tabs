@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tidy Tabs settings</title>
+  <link rel="icon" href="icons/32.png">
+  <link rel="stylesheet" href="base.css">
+  <link rel="stylesheet" href="options.css">
+</head>
+<body>
+  <div class="page">
+    <header class="top">
+      <img src="icons/128.png" width="36" height="36" alt="">
+      <div>
+        <h1>Tidy Tabs</h1>
+        <p>Settings are saved as you change them.</p>
+      </div>
+      <span class="saved" id="saved" aria-live="polite"></span>
+    </header>
+
+    <section class="field">
+      <div class="label">
+        <h2>Claude API key</h2>
+        <p>Stored only in this browser profile and sent only to api.anthropic.com.</p>
+      </div>
+      <div class="control">
+        <div class="keyrow">
+          <input id="apiKey" type="password" autocomplete="off" spellcheck="false" placeholder="sk-ant-api03-…">
+          <button class="btn btn-quiet small" id="toggleKey" type="button">Show</button>
+        </div>
+        <div class="keyactions">
+          <button class="btn btn-primary small" id="testKey" type="button">Check key</button>
+          <span class="status" id="keyStatus" role="status"></span>
+        </div>
+        <ol class="steps">
+          <li>On claude.ai, open Settings, then Billing, and claim the monthly API credits that come with Max.</li>
+          <li>In <a href="https://platform.claude.com/" target="_blank" rel="noreferrer">Claude Console</a>, in the organization that receives the credits, create a key under API keys.</li>
+          <li>Paste it above and press Check key.</li>
+        </ol>
+      </div>
+    </section>
+
+    <section class="field">
+      <div class="label">
+        <h2>Model</h2>
+        <p>Grouping a window usually takes a few thousand tokens.</p>
+      </div>
+      <div class="control choices" id="model" role="radiogroup" aria-label="Model"></div>
+    </section>
+
+    <section class="field">
+      <div class="label">
+        <h2>Group names</h2>
+        <p>The language Claude writes group names in.</p>
+      </div>
+      <div class="control">
+        <div class="segmented" id="language" role="radiogroup" aria-label="Group name language"></div>
+      </div>
+    </section>
+
+    <section class="field">
+      <div class="label">
+        <h2>Your rules</h2>
+        <p>Plain-language instructions Claude follows every time.</p>
+      </div>
+      <div class="control">
+        <textarea id="instructions" rows="5" placeholder="Never group email with anything else."></textarea>
+      </div>
+    </section>
+
+    <section class="field">
+      <div class="label">
+        <h2>After applying</h2>
+        <p>The group holding your current tab always stays open.</p>
+      </div>
+      <div class="control">
+        <label class="toggle">
+          <input type="checkbox" id="collapse">
+          <span class="track" aria-hidden="true"></span>
+          <span>Collapse the new groups</span>
+        </label>
+      </div>
+    </section>
+
+    <section class="field">
+      <div class="label">
+        <h2>Shortcut</h2>
+        <p>Organizes and applies in one step, without the preview.</p>
+      </div>
+      <div class="control">
+        <p class="shortcut"><kbd id="shortcut">Not set</kbd>
+          <button class="link" id="editShortcut" type="button">Change</button></p>
+      </div>
+    </section>
+  </div>
+  <script type="module" src="options.js"></script>
+</body>
+</html>

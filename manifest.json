@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Tidy Tabs",
+  "version": "1.0.0",
+  "description": "Groups your open tabs with Claude.",
+  "minimum_chrome_version": "116",
+  "permissions": ["tabs", "tabGroups", "storage", "favicon"],
+  "host_permissions": ["https://api.anthropic.com/*"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "Tidy Tabs",
+    "default_icon": {
+      "16": "icons/16.png",
+      "32": "icons/32.png",
+      "48": "icons/48.png",
+      "128": "icons/128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/16.png",
+    "32": "icons/32.png",
+    "48": "icons/48.png",
+    "128": "icons/128.png"
+  },
+  "options_ui": {
+    "page": "options.html",
+    "open_in_tab": true
+  },
+  "commands": {
+    "organize-now": {
+      "suggested_key": { "default": "Alt+Shift+O" },
+      "description": "Organize tabs in the current window"
+    }
+  }
+}
